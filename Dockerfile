@@ -1,6 +1,6 @@
-FROM openjdk:13-alpine
+FROM adoptopenjdk/openjdk13:jre
 
-RUN apk add --update --no-cache wget unzip curl bash jq
+RUN apt-get update && apt-get install -y wget unzip curl bash jq && rm -rf /var/lib/apt/lists/*
 RUN mkdir -p /opt
 
 RUN cd /opt \
